@@ -1,0 +1,10 @@
+<mat-toolbar class="d-flex justify-content-center w-100">
+  <mat-toolbar-row class="spacer">
+    <h1 class="font-weigth-bold">
+      {{ title }}
+    </h1>
+    @if(showBackButton){
+    <button mat-button color="accent" (click)="goBack()">Volver</button>
+    }
+  </mat-toolbar-row>
+</mat-toolbar>

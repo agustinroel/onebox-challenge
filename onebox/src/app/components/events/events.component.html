@@ -1,0 +1,17 @@
+<app-header [title]="'OneBox'"></app-header>
+<div class="container mt-4">
+  <div class="row">
+    @if(events$ | async; as events){
+    @for(event of events; track event){
+    <div class="col-12 col-md-6 mb-4">
+      <app-card [event]="event"></app-card>
+    </div>
+    }} @else{
+    <ng-container class="d-flex justify-content-center">
+
+      <p color="danger">No hay eventos disponibles</p>
+
+    </ng-container>
+    }
+  </div>
+</div>

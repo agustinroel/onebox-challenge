@@ -1,0 +1,20 @@
+<mat-card class="h-100 d-flex flex-column">
+  <mat-card-header>
+    <h5 mat-card-title>
+      <a [routerLink]="['/event-detail', event.id]">{{ event.title }}</a>
+    </h5>
+    <h6 mat-card-subtitle>
+      <a [routerLink]="['/event-detail', event.id]">{{ event.subtitle }}</a>
+    </h6>
+  </mat-card-header>
+  <img mat-card-image [routerLink]="['/event-detail', event.id]"
+    [src]="event.image ? '../../..' + event.image : 'https://via.placeholder.com/150'" alt="Event Image">
+  <mat-card-content class="mt-2 flex-grow-1">
+    <strong> {{ event.place }}</strong>
+    <p> {{ event.startDate | date: 'dd/MM/YYYY' }} - {{ event.endDate | date: 'dd/MM/YYYY' }}</p>
+    <p class="d-none d-md-block" [innerHTML]="event.description"></p>
+  </mat-card-content>
+  <mat-card-actions class="mt-auto">
+    <button class="w-100" mat-raised-button color="accent" [routerLink]="['/event-detail', event.id]">Comprar</button>
+  </mat-card-actions>
+</mat-card>

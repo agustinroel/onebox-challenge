@@ -1,0 +1,31 @@
+@if(groupedTickets$ | async; as tickets){
+@if(tickets | keyvalue; as ticketGroups){
+@if(ticketGroups.length > 0){
+<mat-card class="p-3 shopping-cart">
+  <mat-card-header class="d-flex justify-content-center mb-2 p-0 ">
+
+    <p class="text-white center"><i class="las la-shopping-cart text-white fs-3"></i>Carrito de compras
+    </p>
+
+  </mat-card-header>
+  @for(ticketGroup of ticketGroups; track ticketGroup){
+  <mat-card class="mb-3 p-3">
+    <h3>{{ ticketGroup.value.event.title  }}</h3>
+    @for(ticket of ticketGroup.value.tickets; track ticket){
+
+    <div class="d-flex w-100 justify-content-between pointer">
+      <p>
+        {{ ticket.date }} - {{ ticket.selected }} ticket(s)
+      </p>
+      <div (click)="removeTicket(ticketGroup.value.event, ticket)">
+        <img width="20px" src="../../../assets/img/trash.png">
+      </div>
+    </div>
+
+    }
+  </mat-card>
+  }
+</mat-card>
+}
+}
+}
